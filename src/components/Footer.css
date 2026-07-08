@@ -3,6 +3,7 @@
   background: var(--ink-900);
   border-top: 1px solid var(--line-strong);
   color: var(--text-dim);
+  padding: 60px 24px;
 }
 
 .footer__top {
@@ -98,7 +99,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 24px;
+  padding: 24px;
   border-top: 1px solid var(--line);
   font-size: 0.85rem;
 }

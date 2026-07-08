@@ -1,14 +1,23 @@
 .ctaband {
   position: relative;
+  background: var(--paper);
+  padding-block: clamp(56px, 7vw, 112px);
+}
+.ctaband .ctaband__inner {
+  position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(32px, 5vw, 72px);
+  padding: clamp(32px, 6vw, 88px);
+  max-width: var(--container);
+  margin-inline: max(24px, calc((100% - var(--container)) / 2));
+  background: linear-gradient(180deg, var(--ink-700), var(--ink-800));
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-lg);
-  max-width: var(--container);
-  margin-block: clamp(56px, 7vw, 112px);
-  margin-inline: max(24px, calc((100% - var(--container)) / 2));
 }
-
-.ctaband::before {
+.ctaband__inner::before {
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
@@ -26,16 +35,8 @@
   );
   pointer-events: none;
 }
-.ctaband .ctaband__inner {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(32px, 5vw, 72px);
-  padding: clamp(32px, 6vw, 88px);
-  max-width: none;
-}
 .ctaband__content {
+  position: relative;
   max-width: 620px;
 }
 .ctaband__content .lead {
@@ -43,6 +44,7 @@
   max-width: 52ch;
 }
 .ctaband__actions {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 14px;

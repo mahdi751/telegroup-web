@@ -18,8 +18,8 @@ export default function CtaBand({
 }: Props) {
   return (
     <section className="ctaband">
-      <div className="ctaband__glow" aria-hidden="true" />
-      <div className="container ctaband__inner">
+      <div className="ctaband__inner">
+        <div className="ctaband__glow" aria-hidden="true" />
         <Reveal className="ctaband__content">
           <h2 className="h2 text-balance">{title}</h2>
           <p className="lead">{text}</p>

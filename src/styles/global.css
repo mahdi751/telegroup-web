@@ -127,7 +127,7 @@ h4 {
   width: 100%;
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 24px;
 }
 
 .section {

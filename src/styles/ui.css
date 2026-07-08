@@ -25,13 +25,14 @@
 }
 .pagehero__inner {
   position: relative;
-  max-width: 760px;
 }
 .pagehero .display {
   margin-top: 22px;
+  max-width: 760px;
 }
 .pagehero .lead {
   margin-top: 22px;
+  max-width: 760px;
 }
 
 /* Card */
