@@ -3,6 +3,7 @@ import Seo from "../components/Seo";
 import Button from "../components/Button";
 import Icon from "../components/Icon";
 import Reveal, { Stagger, staggerItem } from "../components/Reveal";
+import CountUp from "../components/CountUp";
 import CtaBand from "../components/CtaBand";
 import { stats, method, whyUs } from "../data/site";
 import "./About.css";
@@ -43,12 +44,19 @@ export default function About() {
 
       {/* Stats */}
       <section className="section--tight about-stats">
+        <div className="about-stats__glow" aria-hidden="true" />
         <div className="container">
           <Stagger className="about-stats__grid">
             {stats.map((s) => (
               <motion.div key={s.label} variants={staggerItem} className="about-stat">
-                <span className="about-stat__value">{s.value}</span>
+                <span className="about-stat__icon">
+                  <Icon name={s.icon} size={20} />
+                </span>
+                <span className="about-stat__value">
+                  <CountUp value={s.value} />
+                </span>
                 <span className="about-stat__label">{s.label}</span>
+                <span className="about-stat__sub">{s.sub}</span>
               </motion.div>
             ))}
           </Stagger>

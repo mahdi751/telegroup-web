@@ -10,7 +10,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__top">
         <div className="footer__brand">
-          <Logo variant="on-dark" height={88} />
+          <Link to="/" className="footer__logo" aria-label="Telegroup Security home">
+            <Logo variant="on-dark" height={88} />
+          </Link>
           <p className="footer__tag">
             Security technology and low-voltage infrastructure — designed,
             installed, and supported by one accountable team.

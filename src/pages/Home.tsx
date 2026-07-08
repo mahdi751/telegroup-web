@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import Icon from "../components/Icon";
 import HeroVisual from "../components/HeroVisual";
 import Reveal, { Stagger, staggerItem } from "../components/Reveal";
+import CountUp from "../components/CountUp";
 import CtaBand from "../components/CtaBand";
 import {
   solutions,
@@ -94,11 +95,17 @@ export default function Home() {
 
       {/* ---------------- STATS ---------------- */}
       <section className="section--tight stats">
+        <div className="stats__glow" aria-hidden="true" />
         <div className="container">
           <Stagger className="stats__grid">
             {stats.map((s) => (
               <motion.div key={s.label} className="stats__item" variants={staggerItem}>
-                <div className="stats__value">{s.value}</div>
+                <span className="stats__icon">
+                  <Icon name={s.icon} size={22} />
+                </span>
+                <div className="stats__value">
+                  <CountUp value={s.value} />
+                </div>
                 <div className="stats__label">{s.label}</div>
                 <div className="stats__sub">{s.sub}</div>
               </motion.div>

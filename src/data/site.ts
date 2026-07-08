@@ -21,10 +21,10 @@ export const company = {
 };
 
 export const stats = [
-  { value: "40+", label: "Years of heritage", sub: "in security & low-voltage work" },
-  { value: "1,000+", label: "Projects completed", sub: "residential to industrial" },
-  { value: "24/7", label: "Support & monitoring", sub: "options on every system" },
-  { value: "1", label: "Accountable team", sub: "design through support" },
+  { value: "40+", label: "Years of heritage", sub: "in security & low-voltage work", icon: "growth" },
+  { value: "1,000+", label: "Projects completed", sub: "residential to industrial", icon: "check" },
+  { value: "24/7", label: "Support & monitoring", sub: "options on every system", icon: "headset" },
+  { value: "1", label: "Accountable team", sub: "design through support", icon: "people" },
 ];
 
 export type Solution = {
