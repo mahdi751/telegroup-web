@@ -96,6 +96,10 @@
   color: #e88;
 }
 
+[data-theme="light"] .field__err {
+  color: #b3423c;
+}
+
 .contact-submit {
   width: 100%;
   justify-content: center;
@@ -161,13 +165,13 @@
   border-radius: var(--radius-lg);
   background: var(--ink-900);
   position: sticky;
-  top: 100px;
+  top: 120px;
 }
 .contact-info__heading {
   font-size: 0.82rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 26px;
 }
 .contact-cards {

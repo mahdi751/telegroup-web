@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__top">
         <div className="footer__brand">
-          <Logo />
+          <Logo variant="on-dark" height={88} />
           <p className="footer__tag">
             Security technology and low-voltage infrastructure — designed,
             installed, and supported by one accountable team.
@@ -22,9 +22,6 @@ export default function Footer() {
             </a>
             <a href={company.social.instagram} aria-label="Instagram" className="footer__soc">
               <Icon name="instagram" size={17} />
-            </a>
-            <a href={company.social.linkedin} aria-label="LinkedIn" className="footer__soc">
-              <Icon name="linkedin" size={17} />
             </a>
           </div>
         </div>

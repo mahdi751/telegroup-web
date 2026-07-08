@@ -5,6 +5,7 @@ import Logo from "./Logo";
 import Button from "./Button";
 import Icon from "./Icon";
 import { company } from "../data/site";
+import { useTheme } from "../theme/ThemeContext";
 import "./Navbar.css";
 
 const links = [
@@ -19,6 +20,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -40,7 +42,7 @@ export default function Navbar() {
     <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
       <div className="container nav__inner">
         <Link to="/" className="nav__logo" aria-label="Telegroup Security home">
-          <Logo />
+          <Logo height={72} />
         </Link>
 
         <nav className="nav__links" aria-label="Primary">
@@ -60,13 +62,24 @@ export default function Navbar() {
 
         <div className="nav__actions">
           <a href={company.phoneHref} className="nav__phone">
-            <Icon name="phone" size={17} />
+            <Icon name="phone" size={19} />
             <span>{company.phone}</span>
           </a>
           <Button to="/contact" className="nav__cta">
             Request a Quote
           </Button>
         </div>
+
+        <button
+          className="nav__theme"
+          onClick={toggleTheme}
+          aria-label={
+            theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+          }
+          title={theme === "dark" ? "Light mode" : "Dark mode"}
+        >
+          <Icon name={theme === "dark" ? "sun" : "moon"} size={19} />
+        </button>
 
         <button
           className="nav__burger"

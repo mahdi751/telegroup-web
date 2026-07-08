@@ -1,15 +1,15 @@
+import { useTheme } from "../theme/ThemeContext";
+
 type LogoProps = {
-  theme?: "light" | "dark";
+  variant?: "on-dark" | "on-light";
   className?: string;
   height?: number;
 };
 
-/**
- * theme "light"  → gold + white wordmark (use on dark backgrounds)
- * theme "dark"   → gold + black wordmark (use on light backgrounds)
- */
-export default function Logo({ theme = "light", className, height = 44 }: LogoProps) {
-  const src = theme === "light" ? "/logo-light.png" : "/logo-dark.png";
+export default function Logo({ variant, className, height = 44 }: LogoProps) {
+  const { theme } = useTheme();
+  const resolved = variant ?? (theme === "dark" ? "on-dark" : "on-light");
+  const src = resolved === "on-dark" ? "/logo-light.png" : "/logo-dark.png";
   return (
     <img
       src={src}

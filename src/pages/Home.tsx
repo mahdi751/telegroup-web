@@ -193,7 +193,7 @@ export default function Home() {
       </section>
 
       {/* ---------------- METHOD ---------------- */}
-      <section className="section method-sec">
+      <section className="section section--light method-sec">
         <div className="method-sec__glow" aria-hidden="true" />
         <div className="container">
           <Reveal className="sectionhead">

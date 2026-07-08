@@ -10,7 +10,7 @@
   display: block;
   font-family: var(--font-display);
   font-size: 1.5rem;
-  color: var(--gold);
+  color: var(--gold-text);
   font-weight: 700;
 }
 .ind-hero__stats span {
@@ -29,7 +29,7 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: linear-gradient(180deg, var(--ink-800), var(--ink-900));
-  scroll-margin-top: 100px;
+  scroll-margin-top: 120px;
   overflow: hidden;
   transition: border-color 0.3s var(--ease);
 }

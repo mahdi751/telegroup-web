@@ -24,7 +24,7 @@
 
 .btn--primary {
   background: linear-gradient(180deg, var(--gold-300), var(--gold));
-  color: var(--ink-900);
+  color: var(--on-gold);
   box-shadow: var(--shadow-gold);
 }
 .btn--primary:hover {
@@ -61,4 +61,10 @@
 .section--light .btn--ghost:hover {
   color: var(--gold-600);
   border-color: var(--gold);
+}
+
+[data-theme="light"] .btn--dark {
+  background: #131418;
+  color: #f7f7f5;
+  border-color: transparent;
 }

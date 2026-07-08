@@ -22,7 +22,7 @@
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 800;
-  color: var(--gold);
+  color: var(--gold-text);
   line-height: 1;
 }
 .about-stat__label {
@@ -62,7 +62,7 @@
 }
 .about-story__aside {
   position: sticky;
-  top: 100px;
+  top: 120px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -73,7 +73,7 @@
   overflow: hidden;
   border: 1px solid var(--line);
   aspect-ratio: 4 / 3;
-  box-shadow: 0 30px 60px -40px rgba(0, 0, 0, 0.8);
+  box-shadow: var(--shadow-photo);
 }
 .about-photo img {
   width: 100%;
@@ -91,7 +91,7 @@
   border-radius: 9px;
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--text-hi);
+  color: #f7f7f5;
   background: rgba(10, 10, 11, 0.72);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(214, 169, 84, 0.3);
@@ -143,7 +143,7 @@
   font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 800;
-  color: var(--gold);
+  color: var(--gold-text);
   letter-spacing: -0.03em;
 }
 .approach-card h3 {

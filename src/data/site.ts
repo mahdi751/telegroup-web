@@ -15,9 +15,8 @@ export const company = {
   },
   region: "Windsor · Essex · Southwestern Ontario · Michigan",
   social: {
-    facebook: "https://facebook.com/telegroup",
-    instagram: "https://instagram.com/telegroup",
-    linkedin: "https://linkedin.com/company/telegroup",
+    facebook: "https://www.facebook.com/TelegroupCA",
+    instagram: "https://www.instagram.com/telegroup_security",
   },
 };
 

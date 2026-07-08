@@ -5,7 +5,7 @@ type IconProps = {
 };
 
 // Brand glyphs render as filled shapes rather than stroked outlines.
-const filledIcons = new Set(["facebook", "linkedin"]);
+const filledIcons = new Set(["facebook"]);
 
 const paths: Record<string, JSX.Element> = {
   camera: (
@@ -194,8 +194,14 @@ const paths: Record<string, JSX.Element> = {
       <circle cx="16.7" cy="7.3" r="1.1" fill="currentColor" stroke="none" />
     </>
   ),
-  linkedin: (
-    <path d="M6.94 8.5H4.3V20h2.64zM5.62 4a1.53 1.53 0 1 0 0 3.06 1.53 1.53 0 0 0 0-3.06M20 20v-6.3c0-3.37-1.8-4.94-4.2-4.94-1.94 0-2.8 1.07-3.28 1.82V8.5H9.9V20h2.63v-6.08c0-.32.02-.64.12-.87.26-.64.85-1.3 1.84-1.3 1.3 0 1.82 1 1.82 2.44V20z" />
+  sun: (
+    <>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5" />
+    </>
+  ),
+  moon: (
+    <path d="M20.6 13.4A8.2 8.2 0 1 1 10.6 3.4a6.6 6.6 0 0 0 10 10z" />
   ),
   eye: (
     <>
