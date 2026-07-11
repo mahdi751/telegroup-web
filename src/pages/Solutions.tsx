@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import Icon from "../components/Icon";
 import Reveal, { Stagger, staggerItem } from "../components/Reveal";
 import CtaBand from "../components/CtaBand";
+import BuildingVisual from "../components/BuildingVisual";
 import { solutions, assurance, solutionImages } from "../data/site";
 import "./Solutions.css";
 
@@ -31,21 +32,26 @@ export default function Solutions() {
 
       <section className="pagehero">
         <div className="pagehero__grid" aria-hidden="true" />
-        <div className="container pagehero__inner">
-          <span className="eyebrow">Solutions</span>
-          <h1 className="display">
-            Built around <span className="gold">your property.</span>
-          </h1>
-          <p className="lead">
-            Every property has different risks, access points, network needs,
-            and daily operations. We design each system around how your space is
-            actually used — not from one-size-fits-all equipment packages.
-          </p>
-          <div className="pagehero__actions">
-            <Button to="/contact">Request a Quote</Button>
-            <Button href="#ai-surveillance" variant="ghost" icon="arrow">
-              Explore Capabilities
-            </Button>
+        <div className="container pagehero__inner pagehero__inner--split">
+          <div className="pagehero__copy">
+            <span className="eyebrow">Solutions</span>
+            <h1 className="display">
+              Built around <span className="gold">your property.</span>
+            </h1>
+            <p className="lead">
+              Every property has different risks, access points, network needs,
+              and daily operations. We design each system around how your space is
+              actually used — not from one-size-fits-all equipment packages.
+            </p>
+            <div className="pagehero__actions">
+              <Button to="/contact">Request a Quote</Button>
+              <Button href="#ai-surveillance" variant="ghost" icon="arrow">
+                Explore Capabilities
+              </Button>
+            </div>
+          </div>
+          <div className="pagehero__visual">
+            <BuildingVisual />
           </div>
         </div>
       </section>

@@ -1,0 +1,280 @@
+/* ============ Coverage Radar Visual (rotating sweep hero) ============ */
+.coverage-radar {
+  position: relative;
+  --cr-gold: var(--gold);
+  --cr-gold-bright: var(--gold-300);
+  --cr-green: #3ecf6a;
+}
+.coverage-radar__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+.coverage-radar__frame svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.cr-ring-outer {
+  fill: none;
+  stroke: rgba(214, 169, 84, 0.18);
+  stroke-width: 1;
+}
+.cr-ring-inner {
+  fill: none;
+  stroke: rgba(214, 169, 84, 0.14);
+  stroke-width: 1;
+  stroke-dasharray: 2 8;
+}
+
+/* ---------- rotating sweep beam ---------- */
+.cr-sweep {
+  transform-origin: 230px 230px;
+  animation: crRotate 9s linear infinite;
+}
+@keyframes crRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- per-node pulse glow (timed to sweep pass) ---------- */
+.cr-glow {
+  fill: var(--cr-gold-bright);
+  opacity: 0.12;
+  transform-box: fill-box;
+  transform-origin: center;
+  filter: blur(1px);
+}
+.cr-glow--0 {
+  animation: crGlow0 9s linear infinite;
+}
+.cr-glow--1 {
+  animation: crGlow1 9s linear infinite;
+}
+.cr-glow--2 {
+  animation: crGlow2 9s linear infinite;
+}
+.cr-glow--3 {
+  animation: crGlow3 9s linear infinite;
+}
+.cr-glow--4 {
+  animation: crGlow4 9s linear infinite;
+}
+.cr-glow--5 {
+  animation: crGlow5 9s linear infinite;
+}
+@keyframes crGlow0 {
+  0% {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+  4% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+  96% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+}
+@keyframes crGlow1 {
+  0%,
+  13% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+  16.7% {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+  20%,
+  100% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+}
+@keyframes crGlow2 {
+  0%,
+  29% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+  33.3% {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+  37%,
+  100% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+}
+@keyframes crGlow3 {
+  0%,
+  46% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+  54%,
+  100% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+}
+@keyframes crGlow4 {
+  0%,
+  63% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+  66.7% {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+  70%,
+  100% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+}
+@keyframes crGlow5 {
+  0%,
+  79% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+  83.3% {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+  87%,
+  100% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+}
+
+/* ---------- hub ---------- */
+.cr-hub-base {
+  fill: #0a0a0b;
+  stroke: var(--cr-gold);
+  stroke-width: 1.6;
+}
+.cr-hub-icon {
+  fill: none;
+  stroke: var(--cr-gold);
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- industry nodes ---------- */
+.cr-node-anchor {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+.cr-node {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+.cr-node__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--cr-gold);
+  background: rgba(10, 10, 11, 0.85);
+  border: 1px solid rgba(214, 169, 84, 0.4);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 0 4px rgba(10, 10, 11, 0.4);
+}
+.cr-node__label {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.68);
+  white-space: nowrap;
+  background: rgba(10, 10, 11, 0.55);
+  padding: 2px 7px;
+  border-radius: 5px;
+}
+
+/* ---------- status chip ---------- */
+.coverage-radar__status {
+  position: absolute;
+  bottom: -6px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  color: var(--cr-gold);
+  opacity: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  animation: crLblin 0.8s 1.4s forwards;
+}
+.coverage-radar__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cr-green);
+  box-shadow: 0 0 8px var(--cr-green);
+  animation: crBlink 1.8s 1.4s steps(1) infinite;
+}
+@keyframes crLblin {
+  to {
+    opacity: 0.9;
+  }
+}
+@keyframes crBlink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 560px) {
+  .cr-node {
+    width: 32px;
+    height: 32px;
+  }
+  .cr-node__icon {
+    width: 32px;
+    height: 32px;
+  }
+  .cr-node__label {
+    font-size: 0.52rem;
+    padding: 1px 5px;
+  }
+  .coverage-radar__status {
+    right: 0;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+  }
+}

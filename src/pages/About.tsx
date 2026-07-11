@@ -5,6 +5,7 @@ import Icon from "../components/Icon";
 import Reveal, { Stagger, staggerItem } from "../components/Reveal";
 import CountUp from "../components/CountUp";
 import CtaBand from "../components/CtaBand";
+import HeritageVisual from "../components/HeritageVisual";
 import { stats, method, whyUs } from "../data/site";
 import "./About.css";
 
@@ -19,25 +20,30 @@ export default function About() {
 
       <section className="pagehero">
         <div className="pagehero__grid" aria-hidden="true" />
-        <div className="container pagehero__inner">
-          <span className="eyebrow">About us</span>
-          <h1 className="display">
-            Built on experience.
-            <br />
-            <span className="gold">Focused on protection.</span>
-          </h1>
-          <p className="lead">
-            Telegroup Security designs, installs, and supports security and
-            technology infrastructure for commercial, industrial, and residential
-            properties — built around one goal: helping clients protect their
-            property with systems that are clean, reliable, and designed for
-            long-term use.
-          </p>
-          <div className="pagehero__actions about-hero__actions">
-            <Button to="/contact">Request a Quote</Button>
-            <Button href="#story" variant="ghost">
-              Our Story
-            </Button>
+        <div className="container pagehero__inner pagehero__inner--split">
+          <div className="pagehero__copy">
+            <span className="eyebrow">About us</span>
+            <h1 className="display">
+              Built on experience.
+              <br />
+              <span className="gold">Focused on protection.</span>
+            </h1>
+            <p className="lead">
+              Telegroup Security designs, installs, and supports security and
+              technology infrastructure for commercial, industrial, and residential
+              properties — built around one goal: helping clients protect their
+              property with systems that are clean, reliable, and designed for
+              long-term use.
+            </p>
+            <div className="pagehero__actions about-hero__actions">
+              <Button to="/contact">Request a Quote</Button>
+              <Button href="#story" variant="ghost">
+                Our Story
+              </Button>
+            </div>
+          </div>
+          <div className="pagehero__visual">
+            <HeritageVisual />
           </div>
         </div>
       </section>

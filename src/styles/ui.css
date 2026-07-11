@@ -35,6 +35,36 @@
   max-width: 760px;
 }
 
+/* Page hero split layout (copy + animated visual) */
+.pagehero__inner--split {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 40px;
+}
+.pagehero__inner--split .display,
+.pagehero__inner--split .lead {
+  max-width: none;
+}
+.pagehero__copy {
+  position: relative;
+}
+.pagehero__visual {
+  position: relative;
+}
+@media (max-width: 980px) {
+  .pagehero__inner--split {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .pagehero__visual {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    order: -1;
+  }
+}
+
 /* Card */
 .card {
   position: relative;

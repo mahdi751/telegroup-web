@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Seo from "../components/Seo";
 import Button from "../components/Button";
 import Icon from "../components/Icon";
-import HeroVisual from "../components/HeroVisual";
+import SystemHubVisual from "../components/SystemHubVisual";
 import Reveal, { Stagger, staggerItem } from "../components/Reveal";
 import CountUp from "../components/CountUp";
 import CtaBand from "../components/CtaBand";
@@ -89,7 +89,7 @@ export default function Home() {
             </motion.ul>
           </div>
 
-          <HeroVisual />
+          <SystemHubVisual />
         </div>
       </section>
 

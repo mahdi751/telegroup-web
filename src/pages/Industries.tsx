@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import Icon from "../components/Icon";
 import Reveal, { Stagger, staggerItem } from "../components/Reveal";
 import CtaBand from "../components/CtaBand";
+import CoverageRadarVisual from "../components/CoverageRadarVisual";
 import { industries, industryImages } from "../data/site";
 import "./Industries.css";
 
@@ -18,29 +19,34 @@ export default function Industries() {
 
       <section className="pagehero">
         <div className="pagehero__grid" aria-hidden="true" />
-        <div className="container pagehero__inner">
-          <span className="eyebrow">Industries we serve</span>
-          <h1 className="display">
-            Purpose-built for <span className="gold">your property.</span>
-          </h1>
-          <p className="lead">
-            Every property has its own security challenges. We design each system
-            around the site, the operation, and the level of risk — so the
-            solution fits the way the property is actually used.
-          </p>
-          <div className="ind-hero__stats">
-            <div>
-              <strong>6</strong>
-              <span>Industries</span>
+        <div className="container pagehero__inner pagehero__inner--split">
+          <div className="pagehero__copy">
+            <span className="eyebrow">Industries we serve</span>
+            <h1 className="display">
+              Purpose-built for <span className="gold">your property.</span>
+            </h1>
+            <p className="lead">
+              Every property has its own security challenges. We design each system
+              around the site, the operation, and the level of risk — so the
+              solution fits the way the property is actually used.
+            </p>
+            <div className="ind-hero__stats">
+              <div>
+                <strong>6</strong>
+                <span>Industries</span>
+              </div>
+              <div>
+                <strong>Site-first</strong>
+                <span>Design</span>
+              </div>
+              <div>
+                <strong>One partner</strong>
+                <span>Design, install &amp; support</span>
+              </div>
             </div>
-            <div>
-              <strong>Site-first</strong>
-              <span>Design</span>
-            </div>
-            <div>
-              <strong>One partner</strong>
-              <span>Design, install &amp; support</span>
-            </div>
+          </div>
+          <div className="pagehero__visual">
+            <CoverageRadarVisual />
           </div>
         </div>
       </section>

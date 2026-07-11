@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 import Reveal, { Stagger, staggerItem } from "../components/Reveal";
+import LiveMonitorVisual from "../components/LiveMonitorVisual";
 import { company, propertyTypes, solutions, serviceAreas } from "../data/site";
 import "./Contact.css";
 
@@ -57,16 +58,21 @@ export default function Contact() {
 
       <section className="pagehero">
         <div className="pagehero__grid" aria-hidden="true" />
-        <div className="container pagehero__inner contact-hero">
-          <span className="eyebrow">Contact us</span>
-          <h1 className="display">
-            Let's engineer your <span className="gold">protection strategy.</span>
-          </h1>
-          <p className="lead">
-            Tell us about your property, your security needs, and the right
-            solution for your project. We'll walk the site, map the risks, and
-            respond with a clear, itemized proposal within one business day.
-          </p>
+        <div className="container pagehero__inner pagehero__inner--split contact-hero">
+          <div className="pagehero__copy">
+            <span className="eyebrow">Contact us</span>
+            <h1 className="display">
+              Let's engineer your <span className="gold">protection strategy.</span>
+            </h1>
+            <p className="lead">
+              Tell us about your property, your security needs, and the right
+              solution for your project. We'll walk the site, map the risks, and
+              respond with a clear, itemized proposal within one business day.
+            </p>
+          </div>
+          <div className="pagehero__visual">
+            <LiveMonitorVisual videoSrc="/videos/security-monitor.mp4" />
+          </div>
         </div>
       </section>
 
