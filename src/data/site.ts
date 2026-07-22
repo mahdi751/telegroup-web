@@ -1,7 +1,7 @@
 export const company = {
   name: "Telegroup Security",
   tagline: "The Power to Protect",
-  positioning: "Protection, Engineered.",
+  positioning: "The Power To Protect",
   phone: "519-258-1888",
   phoneHref: "tel:+15192581888",
   email: "info@telegroup.ca",
@@ -21,7 +21,7 @@ export const company = {
 };
 
 export const stats = [
-  { value: "40+", label: "Years of heritage", sub: "in security & low-voltage work", icon: "growth" },
+  { value: "15+", label: "Years of heritage", sub: "in security & low-voltage work", icon: "growth" },
   { value: "1,000+", label: "Projects completed", sub: "residential to industrial", icon: "check" },
   { value: "24/7", label: "Support & monitoring", sub: "options on every system", icon: "headset" },
   { value: "1", label: "Accountable team", sub: "design through support", icon: "people" },
@@ -188,25 +188,6 @@ export type Industry = {
 
 export const industries: Industry[] = [
   {
-    slug: "commercial",
-    title: "Commercial Properties",
-    headline: "Built for business environments",
-    description:
-      "Offices, mixed-use, and professional buildings need systems that protect people and assets without slowing daily operations. We design around entrances, staff flow, and the access levels your business actually runs on.",
-    needs: [
-      "Security camera coverage",
-      "Controlled entry for staff & visitors",
-      "Alarm & intrusion protection",
-      "Intercom & door release",
-      "Network & Wi-Fi infrastructure",
-      "Remote access & management",
-      "Structured cabling",
-      "Room to expand",
-    ],
-    tags: ["Offices", "Mixed-use", "Professional buildings"],
-    icon: "commercial",
-  },
-  {
     slug: "construction",
     title: "Construction Sites",
     headline: "Built for active job sites",
@@ -226,46 +207,27 @@ export const industries: Industry[] = [
     icon: "construction",
   },
   {
-    slug: "warehouses",
-    title: "Warehouses & Yards",
-    headline: "Built for large spaces",
+    slug: "commercial",
+    title: "Commercial Properties",
+    headline: "Built for business environments",
     description:
-      "Wide-area sites need visibility across gates, loading areas, and storage zones. We engineer coverage that scales — controlling access, protecting assets, and eliminating blind spots across the full property.",
-    needs: [
-      "Wide-area camera coverage",
-      "PTZ camera options",
-      "License plate recognition",
-      "Controlled gate & door access",
-      "Alarm protection for key areas",
-      "Network coverage at scale",
-      "Inventory zone protection",
-      "Scalable systems",
-    ],
-    tags: ["LPR at gates", "PTZ coverage", "Inventory zones"],
-    icon: "warehouse",
-  },
-  {
-    slug: "restaurants-retail",
-    title: "Restaurants & Retail",
-    headline: "Built for daily operations",
-    description:
-      "Retail and hospitality need protection that staff can live with every day. We design around customer areas, cash points, and kitchens — keeping the system simple while covering what matters.",
+      "Offices, mixed-use, and professional buildings need systems that protect people and assets without slowing daily operations. We design around entrances, staff flow, and the access levels your business actually runs on.",
     needs: [
       "Security camera coverage",
-      "Cash register monitoring",
+      "Controlled entry for staff & visitors",
       "Alarm & intrusion protection",
-      "Audio & speaker options",
-      "Remote viewing from phone",
-      "Staff access control",
-      "Inventory & storage protection",
-      "Clean, low-disruption install",
+      "Intercom & door release",
+      "Network & Wi-Fi infrastructure",
+      "Remote access & management",
+      "Structured cabling",
+      "Room to expand",
     ],
-    tags: ["Cash points", "Entrances", "Staff access"],
-    icon: "retail",
+    tags: ["Offices", "Mixed-use", "Professional buildings"],
+    icon: "commercial",
   },
   {
     slug: "residential",
-    title: "Residential & Multi-Unit",
+    title: "Residential & Multi-Family",
     headline: "Built for homes & apartment living",
     description:
       "From single homes to apartment buildings, we build systems that are secure, manageable, and built around the way people live — with tenant access, video intercom, and coverage for common and parking areas.",
@@ -283,23 +245,99 @@ export const industries: Industry[] = [
     icon: "residential",
   },
   {
-    slug: "automotive-manufacturing",
-    title: "Automotive & Manufacturing",
+    slug: "industrial-manufacturing",
+    title: "Industrial & Manufacturing",
     headline: "Built for operational environments",
     description:
-      "Production and service facilities have restricted zones, shift patterns, and shipping areas that all need control. We design systems around work areas, entrances, and the operations that keep the business running.",
+      "Production facilities, warehouses, and yards have restricted zones, shift patterns, and shipping areas that all need control. We design systems around work areas, gates, and the operations that keep the business running.",
     needs: [
-      "Production-area coverage",
-      "Shipping & receiving surveillance",
-      "Smart door access control",
-      "Employee entrance control",
+      "Wide-area camera coverage",
+      "Production-area surveillance",
+      "License plate recognition",
+      "Controlled gate & door access",
       "Restricted-area protection",
       "Yard & parking coverage",
       "Alarm & intrusion protection",
-      "Equipment & tool monitoring",
+      "Inventory zone protection",
     ],
-    tags: ["Production areas", "Shipping / receiving", "Employee access"],
+    tags: ["LPR at gates", "PTZ coverage", "Shipping / receiving"],
     icon: "manufacturing",
+  },
+  {
+    slug: "restaurants-retail",
+    title: "Restaurant & Retail",
+    headline: "Built for daily operations",
+    description:
+      "Retail and hospitality need protection that staff can live with every day. We design around customer areas, cash points, and kitchens — keeping the system simple while covering what matters.",
+    needs: [
+      "Security camera coverage",
+      "Cash register monitoring",
+      "Alarm & intrusion protection",
+      "Audio & speaker options",
+      "Remote viewing from phone",
+      "Staff access control",
+      "Inventory & storage protection",
+      "Clean, low-disruption install",
+    ],
+    tags: ["Cash points", "Entrances", "Staff access"],
+    icon: "retail",
+  },
+  {
+    slug: "auto-dealerships",
+    title: "Auto Dealerships",
+    headline: "Built for lot and showroom protection",
+    description:
+      "Dealerships need full-lot visibility, entrance control, and license plate recognition across sales, service, and delivery areas. We engineer coverage that protects inventory without disrupting daily traffic flow.",
+    needs: [
+      "Panoramic lot coverage",
+      "License plate recognition",
+      "Entrance & gate monitoring",
+      "Showroom & service bay cameras",
+      "PTZ tracking for active deterrence",
+      "After-hours intrusion alerts",
+      "Remote viewing from phone",
+      "Inventory perimeter protection",
+    ],
+    tags: ["LPR at gates", "Lot coverage", "Showroom monitoring"],
+    icon: "automotive",
+  },
+  {
+    slug: "special-events",
+    title: "Special Events",
+    headline: "Built for temporary deployments",
+    description:
+      "Festivals, concerts, and private events need rapid-deploy surveillance where fixed infrastructure doesn't exist. We deliver mobile towers, live monitoring, and flexible coverage that moves with the event.",
+    needs: [
+      "Mobile camera tower rental",
+      "Rapid site deployment",
+      "Live remote viewing",
+      "Crowd & perimeter monitoring",
+      "Motion & event alerts",
+      "After-hours monitoring",
+      "Flexible relocation",
+      "Recorded video storage",
+    ],
+    tags: ["Mobile towers", "Rapid deploy", "Perimeter coverage"],
+    icon: "events",
+  },
+  {
+    slug: "municipal-government",
+    title: "Municipal & Government",
+    headline: "Built for public-sector requirements",
+    description:
+      "Municipal buildings, parks, and public facilities need reliable, documented systems that meet compliance standards. We design around public access points, restricted areas, and the accountability public institutions require.",
+    needs: [
+      "Public entrance monitoring",
+      "Access control for staff areas",
+      "Parking & perimeter coverage",
+      "Alarm & intrusion protection",
+      "Network & Wi-Fi infrastructure",
+      "Documented system handover",
+      "Remote access & management",
+      "Scalable multi-site coverage",
+    ],
+    tags: ["Public access", "Compliance-ready", "Multi-site"],
+    icon: "government",
   },
 ];
 
@@ -373,7 +411,7 @@ export const whyUs = [
   },
   {
     title: "Family Values",
-    body: "A family heritage spanning four decades. We treat every property like our own.",
+    body: "A family heritage spanning 15+ years. We treat every property like our own.",
     icon: "people",
   },
 ];
@@ -393,31 +431,35 @@ export const serviceAreas = [
 ];
 
 export const solutionImages: Record<string, string> = {
-  "ai-surveillance": "/images/ai-surveillance.jpg",
+  "ai-surveillance": "/images/ai-surveillance.png",
   "access-control": "/images/access-control.jpg",
-  "alarm-intrusion": "/images/alarm.webp",
+  "alarm-intrusion": "/images/alarm-intrusion.png",
   "network-wifi": "/images/network.jpg",
   "smart-automation": "/images/reliability.jpeg",
   "low-voltage": "/images/low-voltage.jpeg",
-  "mobile-towers": "/images/cctv-hero.jpg",
-  "monitoring-support": "/images/office-team.jpg",
+  "mobile-towers": "/images/mobile-towers.png",
+  "monitoring-support": "/images/monitoring-support.png",
 };
 
 export const industryImages: Record<string, string> = {
-  commercial: "/images/commercial.jpg",
-  construction: "/images/construction.jpg",
-  warehouses: "/images/warehouses.webp",
-  "restaurants-retail": "/images/restaurants.webp",
-  residential: "/images/residential.webp",
-  "automotive-manufacturing": "/images/manufacturing.jpg",
+  construction: "/images/construction-sites.png",
+  commercial: "/images/commercial-properties.png",
+  residential: "/images/residential-multi-family.png",
+  "industrial-manufacturing": "/images/industrial-manufacturing.png",
+  "restaurants-retail": "/images/restaurant-retail.png",
+  "auto-dealerships": "/images/auto-dealerships.png",
+  "special-events": "/images/cctv-hero.jpg",
+  "municipal-government": "/images/access-control.jpg",
 };
 
 export const propertyTypes = [
-  "Commercial Property",
   "Construction Site",
-  "Warehouse / Yard",
+  "Commercial Property",
+  "Residential / Multi-Family",
+  "Industrial / Manufacturing",
   "Restaurant / Retail",
-  "Residential / Multi-Unit",
-  "Automotive / Manufacturing",
+  "Auto Dealership",
+  "Special Event",
+  "Municipal / Government",
   "Other",
 ];

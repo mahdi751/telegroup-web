@@ -12,8 +12,8 @@ export default function Industries() {
   return (
     <>
       <Seo
-        title="Industries We Serve | Commercial, Construction, Warehouses & More — Telegroup Security"
-        description="Purpose-built security for commercial properties, construction sites, warehouses & yards, restaurants & retail, residential & multi-unit, and automotive & manufacturing across Windsor–Essex."
+        title="Industries We Serve | Construction, Commercial, Industrial & More — Telegroup Security"
+        description="Purpose-built security for construction sites, commercial properties, residential & multi-family, industrial & manufacturing, restaurant & retail, auto dealerships, special events, and municipal & government across Windsor–Essex."
         path="/industries"
       />
 
@@ -32,7 +32,7 @@ export default function Industries() {
             </p>
             <div className="ind-hero__stats">
               <div>
-                <strong>6</strong>
+                <strong>8</strong>
                 <span>Industries</span>
               </div>
               <div>

@@ -14,7 +14,7 @@ export default function About() {
     <>
       <Seo
         title="About | A Family Heritage in Security — Telegroup Security"
-        description="Telegroup Security is built on a family heritage in security and low-voltage work spanning more than four decades, carried into the next generation in Canada and combined with modern technology."
+        description="Telegroup Security is built on a family heritage in security and low-voltage work spanning more than 15 years, carried into the next generation in Canada and combined with modern technology."
         path="/about"
       />
 
@@ -77,23 +77,6 @@ export default function About() {
             <h2 className="h2">
               Experience that <span className="gold">builds confidence.</span>
             </h2>
-            <p>
-              Telegroup Security comes from a family background in security,
-              technology, and low-voltage work that started more than 40 years
-              ago. What began as a family business overseas has continued through
-              the next generation in Canada — with the same focus on hard work,
-              reliable service, and protecting people's properties the right way.
-            </p>
-            <p>
-              Today, Telegroup Security combines that experience with modern
-              technology — AI surveillance, access control, alarm systems,
-              intercoms, networking, automation, and monitoring solutions.
-            </p>
-            <p>
-              We are not here to install equipment and leave. We are here to build
-              systems that perform, support our clients, and grow with their
-              needs.
-            </p>
             <blockquote className="about-quote">
               "We don't just install systems. We build solutions that protect what
               matters most."
@@ -111,7 +94,7 @@ export default function About() {
               <h3>What defines us</h3>
               <ul className="checklist">
                 {[
-                  "A family heritage spanning four decades",
+                  "A family heritage spanning 15+ years",
                   "One accountable team, design through support",
                   "Systems engineered around your property",
                   "Licensed & insured in Ontario",

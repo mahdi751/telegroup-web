@@ -22,8 +22,8 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="Telegroup Security | Protection, Engineered — Windsor & Essex County"
-        description="Telegroup Security designs, installs, and supports AI surveillance, access control, alarms, networking, and low-voltage infrastructure across Windsor–Essex and Southwestern Ontario. One accountable team, engineered around your property."
+        title="Telegroup Security | The Power To Protect — Windsor & Essex County"
+        description="Telegroup Security designs, installs, and supports AI surveillance, access control, alarms, networking, and low-voltage infrastructure across Windsor–Essex and Southwestern Ontario. One accountable team, built around your property."
         path="/"
       />
 
@@ -47,9 +47,9 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
-              Protection,
+              The Power
               <br />
-              <span className="gold">Engineered.</span>
+              <span className="gold">To Protect.</span>
             </motion.h1>
 
             <motion.p

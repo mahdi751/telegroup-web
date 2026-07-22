@@ -110,6 +110,28 @@ const paths: Record<string, JSX.Element> = {
       <path d="M7 21v-4M12 21v-4M17 21v-4" />
     </>
   ),
+  automotive: (
+    <>
+      <path d="M5 17h14l-1.5-4.5H6.5z" />
+      <circle cx="7.5" cy="17" r="2" />
+      <circle cx="16.5" cy="17" r="2" />
+      <path d="M3 13h18" />
+    </>
+  ),
+  events: (
+    <>
+      <path d="M12 3v18" />
+      <path d="M6 21 12 6l6 15" />
+      <circle cx="12" cy="4.5" r="1.5" />
+    </>
+  ),
+  government: (
+    <>
+      <path d="M4 21V10l8-5 8 5v11" />
+      <path d="M9 21v-6h6v6" />
+      <path d="M9 10h.01M15 10h.01M9 14h.01M15 14h.01" />
+    </>
+  ),
   shield: (
     <>
       <path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z" />

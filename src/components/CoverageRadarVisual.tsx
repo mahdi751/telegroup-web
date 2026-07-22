@@ -2,14 +2,30 @@ import { motion } from "framer-motion";
 import Icon from "./Icon";
 import "./CoverageRadarVisual.css";
 
-const nodes = [
-  { icon: "commercial", label: "Commercial", left: 50, top: 13 },
-  { icon: "construction", label: "Construction", left: 82, top: 31.5 },
-  { icon: "warehouse", label: "Warehouses", left: 82, top: 68.5 },
-  { icon: "retail", label: "Restaurants & Retail", left: 50, top: 87 },
-  { icon: "residential", label: "Residential", left: 18, top: 68.5 },
-  { icon: "manufacturing", label: "Manufacturing", left: 18, top: 31.5 },
+// Node ring radius must match the SVG glow-dot radius (170 of a 460 viewBox,
+// centered at 230,230) so the icons sit exactly on top of the glow markers.
+const RING_RADIUS_PCT = (170 / 460) * 100;
+const CENTER_PCT = (230 / 460) * 100;
+
+const industryNodes = [
+  { icon: "construction", label: "Construction" },
+  { icon: "commercial", label: "Commercial" },
+  { icon: "residential", label: "Residential" },
+  { icon: "manufacturing", label: "Industrial" },
+  { icon: "retail", label: "Restaurant & Retail" },
+  { icon: "automotive", label: "Auto Dealerships" },
+  { icon: "events", label: "Special Events" },
+  { icon: "government", label: "Municipal" },
 ];
+
+const nodes = industryNodes.map((node, i) => {
+  const angle = ((i * 45 - 90) * Math.PI) / 180;
+  return {
+    ...node,
+    left: CENTER_PCT + Math.cos(angle) * RING_RADIUS_PCT,
+    top: CENTER_PCT + Math.sin(angle) * RING_RADIUS_PCT,
+  };
+});
 
 export default function CoverageRadarVisual() {
   return (
@@ -30,7 +46,7 @@ export default function CoverageRadarVisual() {
           </defs>
 
           <circle cx="230" cy="230" r="210" className="cr-ring-outer" />
-          <circle cx="230" cy="230" r="150" className="cr-ring-inner" />
+          <circle cx="230" cy="230" r="125" className="cr-ring-inner" />
 
           <g className="cr-sweep">
             <path
@@ -43,8 +59,8 @@ export default function CoverageRadarVisual() {
             <circle
               key={i}
               className={`cr-glow cr-glow--${i}`}
-              cx={230 + Math.cos((((i * 60 - 90) * Math.PI) / 180))* 170}
-              cy={230 + Math.sin((((i * 60 - 90) * Math.PI) / 180)) * 170}
+              cx={230 + Math.cos((((i * 45 - 90) * Math.PI) / 180)) * 170}
+              cy={230 + Math.sin((((i * 45 - 90) * Math.PI) / 180)) * 170}
               r="30"
             />
           ))}
@@ -67,7 +83,7 @@ export default function CoverageRadarVisual() {
               initial={{ opacity: 0, scale: 0.4 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{
-                delay: 0.7 + i * 0.15,
+                delay: 0.7 + i * 0.12,
                 duration: 0.5,
                 ease: [0.2, 1.6, 0.4, 1],
               }}
@@ -80,10 +96,11 @@ export default function CoverageRadarVisual() {
           </div>
         ))}
 
-        <div className="coverage-radar__status">
-          <span className="coverage-radar__dot" />
-          6 INDUSTRIES · FULL COVERAGE
-        </div>
+      </div>
+
+      <div className="coverage-radar__status">
+        <span className="coverage-radar__dot" />
+        8 INDUSTRIES · FULL COVERAGE
       </div>
     </motion.div>
   );
