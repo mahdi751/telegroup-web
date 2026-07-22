@@ -251,6 +251,52 @@ h4 {
   height: 1px;
   background: var(--gold);
   opacity: 0.7;
+  animation: eyebrow-grow 2.4s var(--ease) infinite;
+  transform-origin: left;
+}
+
+/* ---------- Ambient / idle motion ---------- */
+@keyframes eyebrow-grow {
+  0%,
+  100% {
+    transform: scaleX(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scaleX(1.35);
+    opacity: 1;
+  }
+}
+
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes icon-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes grid-drift {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 70px 70px, 70px 70px;
+  }
 }
 
 .display {

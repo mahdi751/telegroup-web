@@ -25,7 +25,9 @@ export default function CtaBand({
           <p className="lead">{text}</p>
         </Reveal>
         <Reveal delay={0.1} className="ctaband__actions">
-          <Button to="/contact">Request a Quote</Button>
+          <Button to="/contact#contact-form" className="btn--bob">
+            Request a Quote
+          </Button>
           <Button href={company.phoneHref} variant="ghost" icon="phone">
             {company.phone}
           </Button>

@@ -15,11 +15,23 @@ function ScrollManager() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
     if (hash) {
-      const el = document.getElementById(hash.slice(1));
-      if (el) {
-        setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
-        return;
-      }
+      const id = hash.slice(1);
+      let attempts = 0;
+      let cancelled = false;
+      const tryScroll = () => {
+        if (cancelled) return;
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          return;
+        }
+        attempts += 1;
+        if (attempts < 20) setTimeout(tryScroll, 60);
+      };
+      tryScroll();
+      return () => {
+        cancelled = true;
+      };
     }
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, [pathname, hash]);

@@ -21,12 +21,16 @@ function parseValue(value: string) {
 
 export default function CountUp({ value, duration = 1.8 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: false, margin: "-80px" });
   const { prefix, number, suffix, hasNumber } = parseValue(value);
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
-    if (!inView || !hasNumber) return;
+    if (!hasNumber) return;
+    if (!inView) {
+      setDisplay(0);
+      return;
+    }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setDisplay(number);
       return;

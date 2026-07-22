@@ -19,6 +19,7 @@
   mask-image: radial-gradient(circle at 60% 30%, black, transparent 75%);
   opacity: 0.4;
   pointer-events: none;
+  animation: grid-drift 14s linear infinite;
 }
 .hero__inner {
   position: relative;
@@ -95,6 +96,7 @@
   inset: 0;
   background: radial-gradient(650px 340px at 12% 0%, var(--gold-glow), transparent 65%);
   pointer-events: none;
+  animation: glow-breathe 6s var(--ease) infinite;
 }
 .stats__grid {
   position: relative;
@@ -141,6 +143,10 @@
   color: var(--gold-text);
   background: radial-gradient(circle at 30% 30%, rgba(214, 169, 84, 0.16), rgba(214, 169, 84, 0.04));
   border: 1px solid rgba(214, 169, 84, 0.22);
+  transition: transform 0.4s var(--ease);
+}
+.stats__item:hover .stats__icon {
+  transform: scale(1.1) rotate(-6deg);
 }
 .stats__value {
   font-family: var(--font-display);
@@ -204,6 +210,7 @@
   inset: 0;
   background: radial-gradient(700px 400px at 15% 100%, var(--gold-glow), transparent 60%);
   pointer-events: none;
+  animation: glow-breathe 7s var(--ease) infinite;
 }
 .ddr__inner {
   position: relative;
@@ -266,6 +273,7 @@
   inset: 0;
   background: radial-gradient(650px 380px at 20% 0%, var(--gold-glow), transparent 60%);
   pointer-events: none;
+  animation: glow-breathe 6.5s var(--ease) infinite;
 }
 .method-sec .container {
   position: relative;

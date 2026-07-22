@@ -28,7 +28,7 @@
   box-shadow: var(--shadow-gold);
 }
 .btn--primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.03);
   box-shadow: 0 26px 60px -20px rgba(214, 169, 84, 0.55);
 }
 
@@ -40,7 +40,7 @@
 .btn--ghost:hover {
   border-color: var(--gold);
   color: var(--gold);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.03);
 }
 
 .btn--dark {
@@ -50,8 +50,31 @@
 }
 .btn--dark:hover {
   background: #000;
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.03);
   border-color: var(--gold);
+}
+
+/* Idle float — subtle continuous bob, pauses on hover/focus */
+@keyframes btn-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.btn--bob {
+  animation: btn-bob 2.6s ease-in-out infinite;
+}
+.btn--bob:hover,
+.btn--bob:focus-visible {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn--bob {
+    animation: none;
+  }
 }
 
 .section--light .btn--ghost {

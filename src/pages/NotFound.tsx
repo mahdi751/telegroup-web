@@ -22,7 +22,7 @@ export default function NotFound() {
           </p>
           <div style={{ marginTop: 34, display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <Button to="/">Back to Home</Button>
-            <Button to="/contact" variant="ghost">
+            <Button to="/contact#contact-form" variant="ghost">
               Contact Us
             </Button>
           </div>

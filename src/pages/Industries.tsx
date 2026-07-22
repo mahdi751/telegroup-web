@@ -82,7 +82,7 @@ export default function Industries() {
                       </span>
                     ))}
                   </div>
-                  <Button to="/contact" variant="ghost" className="ind-block__cta">
+                  <Button to="/contact#contact-form" variant="ghost" className="ind-block__cta">
                     Request a quote
                   </Button>
                 </Reveal>

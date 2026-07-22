@@ -69,7 +69,9 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.32 }}
             >
-              <Button to="/contact">Request a Quote</Button>
+              <Button to="/contact#contact-form" className="btn--bob">
+                Request a Quote
+              </Button>
               <Button to="/solutions" variant="ghost">
                 Explore Solutions
               </Button>

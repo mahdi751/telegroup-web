@@ -34,6 +34,7 @@
     transparent 72%
   );
   pointer-events: none;
+  animation: glow-breathe 6s var(--ease) infinite;
 }
 .ctaband__content {
   position: relative;
@@ -49,6 +50,7 @@
   align-items: center;
   gap: 14px;
   flex-shrink: 0;
+  z-index: 1;
 }
 
 @media (max-width: 900px) {

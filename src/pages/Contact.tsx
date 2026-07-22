@@ -79,7 +79,7 @@ export default function Contact() {
       <section className="section contact-main">
         <div className="container contact-grid">
           {/* Form */}
-          <Reveal className="contact-form-wrap">
+          <Reveal className="contact-form-wrap" id="contact-form">
             <div className="contact-form-head">
               <div className="card__icon">
                 <Icon name="mail" size={24} />

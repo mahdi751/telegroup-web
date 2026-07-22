@@ -36,7 +36,7 @@ export default function About() {
               long-term use.
             </p>
             <div className="pagehero__actions about-hero__actions">
-              <Button to="/contact">Request a Quote</Button>
+              <Button to="/contact#contact-form">Request a Quote</Button>
               <Button href="#story" variant="ghost">
                 Our Story
               </Button>

@@ -44,7 +44,7 @@ export default function Solutions() {
               actually used — not from one-size-fits-all equipment packages.
             </p>
             <div className="pagehero__actions">
-              <Button to="/contact">Request a Quote</Button>
+              <Button to="/contact#contact-form">Request a Quote</Button>
               <Button href="#ai-surveillance" variant="ghost" icon="arrow">
                 Explore Capabilities
               </Button>
@@ -86,7 +86,7 @@ export default function Solutions() {
                     </motion.div>
                   ))}
                 </Stagger>
-                <Button to="/contact" variant="ghost" className="sol-row__cta">
+                <Button to="/contact#contact-form" variant="ghost" className="sol-row__cta">
                   Request a quote
                 </Button>
               </Reveal>

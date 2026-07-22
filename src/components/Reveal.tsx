@@ -5,11 +5,16 @@ type Props = {
   delay?: number;
   y?: number;
   className?: string;
+  id?: string;
   as?: "div" | "li" | "section" | "article";
 };
 
 const build = (delay: number, y: number): Variants => ({
-  hidden: { opacity: 0, y },
+  hidden: {
+    opacity: 0,
+    y,
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+  },
   show: {
     opacity: 1,
     y: 0,
@@ -22,16 +27,18 @@ export default function Reveal({
   delay = 0,
   y = 28,
   className,
+  id,
   as = "div",
 }: Props) {
   const MotionTag = motion[as];
   return (
     <MotionTag
+      id={id}
       className={className}
       variants={build(delay, y)}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: false, margin: "-80px" }}
     >
       {children}
     </MotionTag>
@@ -52,8 +59,11 @@ export function Stagger({
       className={className}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-60px" }}
-      variants={{ show: { transition: { staggerChildren: gap } } }}
+      viewport={{ once: false, margin: "-60px" }}
+      variants={{
+        hidden: { transition: { staggerChildren: gap * 0.5, staggerDirection: -1 } },
+        show: { transition: { staggerChildren: gap } },
+      }}
     >
       {children}
     </motion.div>
@@ -61,6 +71,10 @@ export function Stagger({
 }
 
 export const staggerItem: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: {
+    opacity: 0,
+    y: 24,
+    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+  },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };

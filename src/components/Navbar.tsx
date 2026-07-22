@@ -65,7 +65,7 @@ export default function Navbar() {
             <Icon name="phone" size={19} />
             <span>{company.phone}</span>
           </a>
-          <Button to="/contact" className="nav__cta">
+          <Button to="/contact#contact-form" className="nav__cta">
             Request a Quote
           </Button>
         </div>
@@ -128,7 +128,7 @@ export default function Navbar() {
                 <Icon name="phone" size={17} />
                 <span>{company.phone}</span>
               </a>
-              <Button to="/contact">Request a Quote</Button>
+              <Button to="/contact#contact-form">Request a Quote</Button>
             </div>
           </motion.div>
         )}
