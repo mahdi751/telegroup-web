@@ -41,7 +41,7 @@ export default function Navbar() {
     <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
       <div className="container nav__inner">
         <Link to="/" className="nav__logo" aria-label="Telegroup Security home">
-          <Logo height={72} />
+          <Logo height={62} />
         </Link>
 
         <nav className="nav__links" aria-label="Primary">
@@ -63,18 +63,17 @@ export default function Navbar() {
           <Button to="/contact#contact-form" className="nav__cta">
             Request a Quote
           </Button>
+          <button
+            className="nav__theme"
+            onClick={toggleTheme}
+            aria-label={
+              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+            }
+            title={theme === "dark" ? "Light mode" : "Dark mode"}
+          >
+            <Icon name={theme === "dark" ? "sun" : "moon"} size={19} />
+          </button>
         </div>
-
-        <button
-          className="nav__theme"
-          onClick={toggleTheme}
-          aria-label={
-            theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
-          }
-          title={theme === "dark" ? "Light mode" : "Dark mode"}
-        >
-          <Icon name={theme === "dark" ? "sun" : "moon"} size={19} />
-        </button>
 
         <button
           className="nav__burger"
