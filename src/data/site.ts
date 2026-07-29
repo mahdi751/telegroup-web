@@ -448,8 +448,8 @@ export const industryImages: Record<string, string> = {
   "industrial-manufacturing": "/images/industrial-manufacturing.png",
   "restaurants-retail": "/images/restaurant-retail.png",
   "auto-dealerships": "/images/auto-dealerships.png",
-  "special-events": "/images/cctv-hero.jpg",
-  "municipal-government": "/images/access-control.jpg",
+  "special-events": "/images/special-events.jpg",
+  "municipal-government": "/images/municipal-government.jpg",
 };
 
 export const propertyTypes = [

@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import Logo from "./Logo";
 import Button from "./Button";
 import Icon from "./Icon";
-import { company } from "../data/site";
 import { useTheme } from "../theme/ThemeContext";
 import "./Navbar.css";
 
@@ -61,10 +60,6 @@ export default function Navbar() {
         </nav>
 
         <div className="nav__actions">
-          <a href={company.phoneHref} className="nav__phone">
-            <Icon name="phone" size={19} />
-            <span>{company.phone}</span>
-          </a>
           <Button to="/contact#contact-form" className="nav__cta">
             Request a Quote
           </Button>
@@ -124,10 +119,6 @@ export default function Navbar() {
               ))}
             </nav>
             <div className="nav__mobile-foot">
-              <a href={company.phoneHref} className="nav__phone">
-                <Icon name="phone" size={17} />
-                <span>{company.phone}</span>
-              </a>
               <Button to="/contact#contact-form">Request a Quote</Button>
             </div>
           </motion.div>
