@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "framer-motion": "^11.3.19",
+    "maplibre-gl": "^5.24.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",

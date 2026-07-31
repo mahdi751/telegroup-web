@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
@@ -12,6 +13,11 @@ type Status = "idle" | "submitting" | "success";
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  /* The coverage map hands off the checked address and recommended package. */
+  const [params] = useSearchParams();
+  const prefillLocation = params.get("location") || "";
+  const prefillPackage = params.get("package") || "";
 
   const validate = (data: FormData) => {
     const e: Record<string, string> = {};
@@ -114,7 +120,11 @@ export default function Contact() {
                 <Field label="Company name" name="company" />
                 <Field label="Phone number" name="phone" type="tel" error={errors.phone} required />
                 <Field label="Email address" name="email" type="email" error={errors.email} required />
-                <Field label="Project location" name="location" />
+                <Field
+                  label="Project location"
+                  name="location"
+                  defaultValue={prefillLocation}
+                />
                 <div className="field">
                   <label htmlFor="property">Property type</label>
                   <select id="property" name="property" defaultValue="">
@@ -148,6 +158,11 @@ export default function Contact() {
                     id="details"
                     name="details"
                     rows={4}
+                    defaultValue={
+                      prefillPackage
+                        ? `Security Snapshot suggested: ${prefillPackage}.\n\n`
+                        : undefined
+                    }
                     placeholder="Tell us about your property, entrances, current systems, and what you'd like to protect."
                   />
                 </div>
@@ -240,12 +255,14 @@ function Field({
   type = "text",
   error,
   required,
+  defaultValue,
 }: {
   label: string;
   name: string;
   type?: string;
   error?: string;
   required?: boolean;
+  defaultValue?: string;
 }) {
   return (
     <div className={`field ${error ? "field--error" : ""}`}>
@@ -257,6 +274,7 @@ function Field({
         id={name}
         name={name}
         type={type}
+        defaultValue={defaultValue}
         aria-invalid={!!error}
         aria-describedby={error ? `${name}-err` : undefined}
       />

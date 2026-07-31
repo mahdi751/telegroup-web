@@ -7,6 +7,7 @@ import SystemHubVisual from "../components/SystemHubVisual";
 import Reveal, { Stagger, staggerItem } from "../components/Reveal";
 import CountUp from "../components/CountUp";
 import CtaBand from "../components/CtaBand";
+import CoverageMap from "../components/CoverageMap";
 import {
   solutions,
   industries,
@@ -262,6 +263,8 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      <CoverageMap />
 
       <CtaBand />
     </>

@@ -1,0 +1,659 @@
+/* ============================================================
+   Coverage map — full-bleed interactive section
+   ============================================================ */
+
+.cmap {
+  position: relative;
+  min-height: 88vh;
+  overflow: hidden;
+  background: var(--ink-900);
+  isolation: isolate;
+}
+
+.cmap__canvas {
+  position: absolute;
+  inset: 0;
+}
+.cmap__canvas .maplibregl-canvas {
+  outline: none;
+}
+
+/* Darken the left third so the panel copy always holds contrast. */
+.cmap__scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+      100deg,
+      var(--ink-900) 0%,
+      rgba(6, 6, 8, 0.92) 26%,
+      rgba(6, 6, 8, 0.45) 48%,
+      rgba(6, 6, 8, 0) 68%
+    ),
+    linear-gradient(to bottom, rgba(6, 6, 8, 0.6), rgba(6, 6, 8, 0) 22%);
+}
+[data-theme="light"] .cmap__scrim {
+  background: linear-gradient(
+      100deg,
+      var(--ink-900) 0%,
+      rgba(234, 229, 216, 0.94) 26%,
+      rgba(234, 229, 216, 0.5) 48%,
+      rgba(234, 229, 216, 0) 68%
+    ),
+    linear-gradient(to bottom, rgba(234, 229, 216, 0.55), rgba(234, 229, 216, 0) 22%);
+}
+
+.cmap__loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* ---------------- panel ---------------- */
+
+.cmap__panel {
+  position: relative;
+  z-index: 3;
+  max-width: 520px;
+  /* Full-bleed section: hug the viewport edge rather than the site container,
+     so the panel and the legend push apart on wide screens. */
+  margin-left: clamp(24px, 3.5vw, 64px);
+  padding: 12vh 0 8vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.cmap__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 5.2vw, 4.1rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--text-hi);
+  margin: 0;
+}
+.cmap__title .gold {
+  color: var(--gold-text);
+}
+
+.cmap__lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text);
+  max-width: 44ch;
+  margin: 0;
+}
+
+/* ---------------- search ---------------- */
+
+.cmap__search {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 440px;
+}
+
+.cmap__field {
+  position: relative;
+  flex: 1;
+}
+
+.cmap__field input {
+  width: 100%;
+  height: 54px;
+  padding: 0 16px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-hi);
+  background: color-mix(in srgb, var(--ink-800) 88%, transparent);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.cmap__field input::placeholder {
+  color: var(--text-dim);
+}
+.cmap__field input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+}
+
+.cmap__ac {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 5;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--nav-bg-solid);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(14px);
+  max-height: 300px;
+  overflow-y: auto;
+}
+.cmap__ac li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.15s var(--ease);
+}
+.cmap__ac li:hover,
+.cmap__ac li.hl {
+  background: color-mix(in srgb, var(--gold) 14%, transparent);
+}
+.cmap__ac b {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-hi);
+}
+.cmap__ac span {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.cmap__go {
+  height: 54px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--on-gold);
+  background: linear-gradient(135deg, var(--gold-300), var(--gold));
+  border: 0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.cmap__go:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+.cmap__go:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.cmap__hints {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+.cmap__hints button {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--gold-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+/* ---------------- result ---------------- */
+
+.cmap__result {
+  width: 100%;
+  max-width: 440px;
+  padding: 18px 20px;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--ink-800) 92%, transparent);
+  border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--line-strong);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-md);
+  animation: cmapIn 0.45s var(--ease) both;
+}
+@keyframes cmapIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cmap__result {
+    animation: none;
+  }
+}
+
+.cmap__result--core {
+  border-left-color: var(--gold);
+}
+.cmap__result--regional {
+  border-left-color: var(--gold-600);
+}
+.cmap__result--cross-border {
+  border-left-color: #7f8794;
+}
+.cmap__result--out {
+  border-left-color: #8a5a4a;
+}
+
+.cmap__addr {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.cmap__verdict {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-hi);
+  letter-spacing: -0.01em;
+}
+.cmap__verdict i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px var(--gold-glow);
+  flex-shrink: 0;
+}
+.cmap__result--cross-border .cmap__verdict i {
+  background: #7f8794;
+  box-shadow: 0 0 0 4px rgba(127, 135, 148, 0.2);
+}
+.cmap__result--out .cmap__verdict i {
+  background: #b06a52;
+  box-shadow: 0 0 0 4px rgba(176, 106, 82, 0.2);
+}
+
+.cmap__zoneline {
+  margin-top: 6px;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+}
+
+.cmap__svc {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 7px;
+}
+.cmap__svc li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+.cmap__svc li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.75;
+}
+
+.cmap__note {
+  margin: 12px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-dim);
+}
+
+.cmap__snap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 12px 18px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--on-gold);
+  background: linear-gradient(135deg, var(--gold-300), var(--gold));
+  border: 0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.cmap__snap:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+/* ---------------- wizard ---------------- */
+
+.cmap__q {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--text-hi);
+}
+
+.cmap__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.cmap__chips button {
+  padding: 9px 14px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--text);
+  background: color-mix(in srgb, var(--ink-600) 80%, transparent);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.18s var(--ease), border-color 0.18s var(--ease),
+    background 0.18s var(--ease);
+}
+.cmap__chips button:hover {
+  color: var(--text-hi);
+  border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+}
+
+.cmap__back {
+  margin-top: 14px;
+  padding: 0;
+  background: none;
+  border: 0;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  color: var(--text-dim);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.cmap__back:hover {
+  color: var(--text-hi);
+}
+
+.cmap__plan {
+  display: grid;
+  gap: 11px;
+  margin-top: 15px;
+}
+.cmap__plan > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-left: 14px;
+  border-left: 2px solid color-mix(in srgb, var(--gold) 45%, transparent);
+}
+.cmap__plan b {
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: var(--text-hi);
+}
+.cmap__plan span {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+.cmap__ctas {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.cmap__ctas .cmap__back {
+  margin-top: 16px;
+}
+
+/* ---------------- legend ---------------- */
+
+.cmap__legend {
+  position: absolute;
+  right: clamp(20px, 3.5vw, 64px);
+  bottom: 40px;
+  z-index: 3;
+  width: 280px;
+  padding: 16px 18px;
+  display: grid;
+  gap: 13px;
+  background: color-mix(in srgb, var(--ink-800) 90%, transparent);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-md);
+}
+.cmap__legend-head {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.cmap__legend-row {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+}
+.cmap__legend-row b {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-hi);
+}
+.cmap__legend-row span {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-dim);
+}
+.cmap__swatch {
+  width: 12px;
+  height: 12px;
+  margin-top: 3px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  border: 1px solid var(--gold);
+}
+.cmap__swatch--core {
+  background: rgba(214, 169, 84, 0.75);
+}
+.cmap__swatch--regional {
+  background: rgba(214, 169, 84, 0.35);
+}
+.cmap__swatch--cross-border {
+  background: rgba(214, 169, 84, 0.14);
+}
+
+/* ---------------- controls ---------------- */
+
+.cmap__ctl {
+  position: absolute;
+  right: clamp(20px, 3.5vw, 64px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  display: grid;
+  gap: 8px;
+}
+.cmap__ctl button {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  color: var(--text-hi);
+  background: color-mix(in srgb, var(--ink-800) 88%, transparent);
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+.cmap__ctl button:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  transform: scale(1.06);
+}
+
+/* ---------------- map markers ---------------- */
+
+.cmap__hq {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.cmap__hq-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 0 5px rgba(214, 169, 84, 0.25);
+  flex-shrink: 0;
+}
+.cmap__hq-text {
+  display: flex;
+  flex-direction: column;
+  transform: translateX(2px);
+}
+.cmap__hq-text b {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+.cmap__hq-text i {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.72);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+[data-theme="light"] .cmap__hq-text b {
+  color: #14151a;
+  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.95);
+}
+[data-theme="light"] .cmap__hq-text i {
+  color: #4a4d55;
+  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.95);
+}
+
+.cmap__pin {
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.cmap__pin-core {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold-100);
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 14px 3px rgba(230, 198, 128, 0.7);
+}
+
+/* Pin-drop mode: make the map read as clickable. */
+.cmap:has(.cmap__result .cmap__addr) .cmap__canvas {
+  cursor: inherit;
+}
+
+/* ---------------- responsive ---------------- */
+
+@media (max-width: 1180px) {
+  .cmap__legend {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .cmap {
+    min-height: 0;
+  }
+  .cmap__canvas {
+    position: relative;
+    height: 58vh;
+    inset: auto;
+  }
+  .cmap__scrim {
+    height: 58vh;
+    inset: 0 0 auto 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(6, 6, 8, 0.55),
+      rgba(6, 6, 8, 0) 30%,
+      rgba(6, 6, 8, 0.75) 100%
+    );
+  }
+  [data-theme="light"] .cmap__scrim {
+    background: linear-gradient(
+      to bottom,
+      rgba(234, 229, 216, 0.5),
+      rgba(234, 229, 216, 0) 30%,
+      rgba(234, 229, 216, 0.8) 100%
+    );
+  }
+  .cmap__panel {
+    max-width: none;
+    margin: 0;
+    padding: 34px 24px 56px;
+  }
+  .cmap__search,
+  .cmap__result {
+    max-width: none;
+  }
+  .cmap__ctl {
+    top: 58vh;
+    transform: translateY(-100%) translateY(-16px);
+    right: 16px;
+  }
+  .cmap__loading {
+    height: 58vh;
+    inset: 0 0 auto 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .cmap__search {
+    flex-direction: column;
+  }
+  .cmap__go {
+    justify-content: center;
+  }
+}
