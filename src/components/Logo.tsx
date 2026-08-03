@@ -13,7 +13,7 @@ export default function Logo({ variant, className, height = 44 }: LogoProps) {
   return (
     <img
       src={src}
-      alt="Telegroup Security — The Power to Protect"
+      alt="Telegroup Security"
       className={className}
       height={height}
       style={{ height, width: "auto" }}

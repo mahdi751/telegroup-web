@@ -59,7 +59,7 @@ export default function BuildingVisual() {
             </g>
           </g>
           <line className="bv-leader bv-leader--1" x1="96" y1="150" x2="60" y2="118" />
-          <text className="bv-label bv-label--1" x="10" y="112">AI CAMERA — LIVE</text>
+          <text className="bv-label bv-label--1" x="10" y="112">AI CAMERA · LIVE</text>
 
           {/* Camera 2 : top-right corner */}
           <circle className="bv-ring bv-ring--2" cx="470" cy="160" r="10" />
@@ -73,7 +73,7 @@ export default function BuildingVisual() {
             </g>
           </g>
           <line className="bv-leader bv-leader--1" x1="484" y1="132" x2="516" y2="104" />
-          <text className="bv-label bv-label--1" x="452" y="96">AI CAMERA — LIVE</text>
+          <text className="bv-label bv-label--1" x="452" y="96">AI CAMERA · LIVE</text>
 
           {/* Camera 3 : roof deck */}
           <circle className="bv-ring bv-ring--3" cx="330" cy="105" r="10" />
@@ -147,7 +147,7 @@ export default function BuildingVisual() {
             </g>
           </g>
           <line className="bv-leader bv-leader--3" x1="268" y1="316" x2="310" y2="392" />
-          <text className="bv-label bv-label--3" x="288" y="406">INDOOR AUDIO — ARMED</text>
+          <text className="bv-label bv-label--3" x="288" y="406">INDOOR AUDIO · ARMED</text>
         </svg>
 
         <div className="building-visual__status">

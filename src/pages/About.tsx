@@ -13,7 +13,7 @@ export default function About() {
   return (
     <>
       <Seo
-        title="About | A Family Heritage in Security — Telegroup Security"
+        title="About | A Family Heritage in Security, Telegroup Security"
         description="Telegroup Security is built on a family heritage in security and low-voltage work spanning more than 15 years, carried into the next generation in Canada and combined with modern technology."
         path="/about"
       />
@@ -31,7 +31,7 @@ export default function About() {
             <p className="lead">
               Telegroup Security designs, installs, and supports security and
               technology infrastructure for commercial, industrial, and residential
-              properties — built around one goal: helping clients protect their
+              properties, built around one goal: helping clients protect their
               property with systems that are clean, reliable, and designed for
               long-term use.
             </p>
@@ -81,6 +81,43 @@ export default function About() {
               "We don't just install systems. We build solutions that protect what
               matters most."
             </blockquote>
+
+            <div className="about-story__points">
+              <h3 className="about-story__points-title">
+                Built on Engineering. Driven by Trust
+              </h3>
+              <ul className="about-story__points-list">
+                <li>
+                  <span className="about-story__point-head">
+                    <Icon name="check" size={16} /> Our Promise
+                  </span>
+                  <p>
+                    Designed with purpose. Installed with precision. Supported
+                    for the long term.
+                  </p>
+                </li>
+                <li>
+                  <span className="about-story__point-head">
+                    <Icon name="check" size={16} /> Why We Do It
+                  </span>
+                  <p>
+                    Technology only creates value when it's engineered
+                    correctly. We design intelligent security systems
+                    businesses can depend on every day.
+                  </p>
+                </li>
+                <li>
+                  <span className="about-story__point-head">
+                    <Icon name="check" size={16} /> Working With Telegroup
+                  </span>
+                  <p>
+                    One accountable team from consultation through
+                    installation, commissioning, training, and ongoing
+                    support.
+                  </p>
+                </li>
+              </ul>
+            </div>
           </Reveal>
 
           <Reveal className="about-story__aside" delay={0.1}>
@@ -99,7 +136,7 @@ export default function About() {
                   "Systems engineered around your property",
                   "Licensed & insured in Ontario",
                   "Clean, documented, professional work",
-                  "1,000+ projects — residential to industrial",
+                  "1,000+ projects, residential to industrial",
                 ].map((v) => (
                   <li key={v}>
                     <Icon name="check" size={17} />

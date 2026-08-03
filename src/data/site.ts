@@ -1,6 +1,6 @@
 export const company = {
   name: "Telegroup Security",
-  tagline: "The Power to Protect",
+  tagline: "The Power To Protect",
   positioning: "The Power To Protect",
   phone: "519-258-1888",
   phoneHref: "tel:+15192581888",
@@ -21,7 +21,7 @@ export const company = {
 };
 
 export const stats = [
-  { value: "15+", label: "Years of heritage", sub: "in security & low-voltage work", icon: "growth" },
+  { value: "15+", label: "Years of heritage", sub: "Delivering professional security & low-voltage solutions", icon: "growth" },
   { value: "1,000+", label: "Projects completed", sub: "residential to industrial", icon: "check" },
   { value: "24/7", label: "Support & monitoring", sub: "options on every system", icon: "headset" },
   { value: "1", label: "Accountable team", sub: "design through support", icon: "people" },
@@ -44,7 +44,7 @@ export const solutions: Solution[] = [
     title: "AI Surveillance Systems",
     short: "Intelligent camera systems with analytics, recognition, and real-time alerting.",
     description:
-      "Cameras that do more than record. AI-driven analytics identify threats early, recognize plates and faces, and push alerts the moment something matters — so you respond in real time instead of reviewing footage after the fact.",
+      "Cameras that do more than record. AI-driven analytics identify threats early, recognize plates and faces, and push alerts the moment something matters, so you respond in real time instead of reviewing footage after the fact.",
     features: [
       "License plate recognition",
       "Facial recognition options",
@@ -61,7 +61,7 @@ export const solutions: Solution[] = [
     title: "Access Control & Intercom",
     short: "Managed entry across doors, gates, and elevators from a single platform.",
     description:
-      "Control exactly who enters, where, and when. Manage staff, visitors, and vehicles across every entry point from one platform — with video intercom, remote release, and mobile credentials that scale with your building.",
+      "Control exactly who enters, where, and when. Manage staff, visitors, and vehicles across every entry point from one platform, with video intercom, remote release, and mobile credentials that scale with your building.",
     features: [
       "Mobile & fob access",
       "Video intercom systems",
@@ -78,7 +78,7 @@ export const solutions: Solution[] = [
     title: "Alarm & Intrusion Protection",
     short: "Detection engineered to alert the right people before damage is done.",
     description:
-      "Intrusion detection tuned to your property — not a generic package. Motion, glass-break, and perimeter sensors trigger the right response instantly, with monitored options and panic features for high-risk areas.",
+      "Intrusion detection tuned to your property, not a generic package. Motion, glass-break, and perimeter sensors trigger the right response instantly, with monitored options and panic features for high-risk areas.",
     features: [
       "Motion & glass-break sensors",
       "Indoor & outdoor sirens",
@@ -95,7 +95,7 @@ export const solutions: Solution[] = [
     title: "Network & Wi-Fi Infrastructure",
     short: "Enterprise-grade connectivity underpinning every system we deploy.",
     description:
-      "Every camera, controller, and sensor depends on the network beneath it. We build reliable, high-performance infrastructure — structured cabling, switching, and coverage engineered to carry your entire technology stack without compromise.",
+      "Every camera, controller, and sensor depends on the network beneath it. We build reliable, high-performance infrastructure, structured cabling, switching, and coverage engineered to carry your entire technology stack without compromise.",
     features: [
       "Structured cabling",
       "Network switches & equipment",
@@ -112,7 +112,7 @@ export const solutions: Solution[] = [
     title: "Smart Automation",
     short: "Lighting, climate, audio, and security unified under one control layer.",
     description:
-      "Bring lighting, climate, audio, locks, and cameras under one intelligent control layer. Scenes and schedules run automatically, and everything responds to a single app or your voice — for comfort and control that feels effortless.",
+      "Bring lighting, climate, audio, locks, and cameras under one intelligent control layer. Scenes and schedules run automatically, and everything responds to a single app or your voice, for comfort and control that feels effortless.",
     features: [
       "Scenes & schedules",
       "Smart lock & camera integration",
@@ -127,9 +127,9 @@ export const solutions: Solution[] = [
     slug: "low-voltage",
     index: "06",
     title: "Low-Voltage & Structured Cabling",
-    short: "Clean, labeled, documented cabling — the backbone of reliable systems.",
+    short: "Clean, labeled, documented cabling, the backbone of reliable systems.",
     description:
-      "The difference between a system that lasts and one that fails is what's behind the wall. We deliver clean, labeled, fully documented cabling — pre-wired for new construction and built with headroom for whatever you add next.",
+      "The difference between a system that lasts and one that fails is what's behind the wall. We deliver clean, labeled, fully documented cabling, pre-wired for new construction and built with headroom for whatever you add next.",
     features: [
       "New-construction pre-wire",
       "Security & network cabling",
@@ -146,7 +146,7 @@ export const solutions: Solution[] = [
     title: "Mobile Camera Towers",
     short: "Rapid-deploy surveillance for sites without fixed infrastructure.",
     description:
-      "Instant coverage where there's no power and no infrastructure. Solar-powered, rapid-deploy towers protect construction sites, yards, and events — with live remote viewing and the flexibility to relocate as the site changes.",
+      "Instant coverage where there's no power and no infrastructure. Solar-powered, rapid-deploy towers protect construction sites, yards, and events, with live remote viewing and the flexibility to relocate as the site changes.",
     features: [
       "Solar-powered options",
       "PTZ camera options",
@@ -161,9 +161,9 @@ export const solutions: Solution[] = [
     slug: "monitoring-support",
     index: "08",
     title: "Monitoring, Service & Support",
-    short: "The relationship continues after commissioning — by design.",
+    short: "The relationship continues after commissioning, by design.",
     description:
-      "We don't install and disappear. Ongoing monitoring, remote diagnostics, training, and maintenance keep your system performing for years — with responsive support that's there the moment you call.",
+      "We don't install and disappear. Ongoing monitoring, remote diagnostics, training, and maintenance keep your system performing for years, with responsive support that's there the moment you call.",
     features: [
       "24/7 monitoring options",
       "Remote diagnostics",
@@ -230,7 +230,7 @@ export const industries: Industry[] = [
     title: "Residential & Multi-Family",
     headline: "Built for homes & apartment living",
     description:
-      "From single homes to apartment buildings, we build systems that are secure, manageable, and built around the way people live — with tenant access, video intercom, and coverage for common and parking areas.",
+      "From single homes to apartment buildings, we build systems that are secure, manageable, and built around the way people live, with tenant access, video intercom, and coverage for common and parking areas.",
     needs: [
       "Home security cameras",
       "Alarm & intrusion protection",
@@ -268,7 +268,7 @@ export const industries: Industry[] = [
     title: "Restaurant & Retail",
     headline: "Built for daily operations",
     description:
-      "Retail and hospitality need protection that staff can live with every day. We design around customer areas, cash points, and kitchens — keeping the system simple while covering what matters.",
+      "Retail and hospitality need protection that staff can live with every day. We design around customer areas, cash points, and kitchens, keeping the system simple while covering what matters.",
     needs: [
       "Security camera coverage",
       "Cash register monitoring",
@@ -345,7 +345,7 @@ export const method = [
   {
     index: "01",
     title: "Assess",
-    body: "We walk the property and map risks, entrances, blind spots, and operating patterns — before a single product is chosen.",
+    body: "We walk the property and map risks, entrances, blind spots, and operating patterns, before a single product is chosen.",
   },
   {
     index: "02",
@@ -360,7 +360,7 @@ export const method = [
   {
     index: "04",
     title: "Sustain",
-    body: "Training, monitoring options, remote diagnostics, and responsive support — long after the invoice is settled.",
+    body: "Training, monitoring options, remote diagnostics, and responsive support, long after the invoice is settled.",
   },
 ];
 
@@ -391,7 +391,7 @@ export const whyUs = [
   },
   {
     title: "Complete Technology Solutions",
-    body: "Cameras, access, alarms, networking, automation, and low-voltage — engineered to work as one system.",
+    body: "Cameras, access, alarms, networking, automation, and low-voltage, engineered to work as one system.",
     icon: "grid",
   },
   {

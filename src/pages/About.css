@@ -99,6 +99,40 @@
   color: var(--text-hi);
   line-height: 1.5;
 }
+.about-story__points {
+  margin-top: 36px;
+}
+.about-story__points-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-hi);
+  margin-bottom: 20px;
+}
+.about-story__points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.about-story__points-list li {
+  padding-left: 20px;
+  border-left: 2px solid var(--line);
+}
+.about-story__point-head {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--gold-text);
+  font-size: 0.98rem;
+}
+.about-story__points-list p {
+  margin-top: 6px;
+  color: var(--text-dim);
+  line-height: 1.65;
+  max-width: 55ch;
+}
+
 .about-story__aside {
   position: sticky;
   top: 120px;

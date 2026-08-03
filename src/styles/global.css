@@ -95,6 +95,7 @@
 }
 
 html {
+  font-size: 17px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
@@ -120,6 +121,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  text-transform: capitalize;
 }
 
 img,
@@ -133,8 +135,15 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+input,
+select,
+textarea {
   font-family: inherit;
+  text-transform: inherit;
+}
+
+button {
   cursor: pointer;
 }
 

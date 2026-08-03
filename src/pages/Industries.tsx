@@ -12,7 +12,7 @@ export default function Industries() {
   return (
     <>
       <Seo
-        title="Industries We Serve | Construction, Commercial, Industrial & More — Telegroup Security"
+        title="Industries We Serve | Construction, Commercial, Industrial & More, Telegroup Security"
         description="Purpose-built security for construction sites, commercial properties, residential & multi-family, industrial & manufacturing, restaurant & retail, auto dealerships, special events, and municipal & government across Windsor–Essex."
         path="/industries"
       />
@@ -27,7 +27,7 @@ export default function Industries() {
             </h1>
             <p className="lead">
               Every property has its own security challenges. We design each system
-              around the site, the operation, and the level of risk — so the
+              around the site, the operation, and the level of risk, so the
               solution fits the way the property is actually used.
             </p>
             <div className="ind-hero__stats">
@@ -64,7 +64,7 @@ export default function Industries() {
                   </div>
                   <div>
                     <span className="ind-block__num">
-                      {String(i + 1).padStart(2, "0")} — Industry
+                      {String(i + 1).padStart(2, "0")}. Industry
                     </span>
                     <h2 className="ind-block__title">{ind.title}</h2>
                   </div>
@@ -110,7 +110,7 @@ export default function Industries() {
             Built for <span className="gold">your property.</span>
           </>
         }
-        text="Tell us about your property, and we'll help you choose the right security solution — designed around the way you actually use the site."
+        text="Tell us about your property, and we'll help you choose the right security solution, designed around the way you actually use the site."
       />
     </>
   );

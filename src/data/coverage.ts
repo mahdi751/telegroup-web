@@ -122,7 +122,7 @@ export const tiers: Record<TierId, Tier> = {
   core: {
     id: "core",
     verdict: "Full service",
-    blurb: "Design, installation, service, and monitoring — our home territory.",
+    blurb: "Design, installation, service, and monitoring, our home territory.",
     services: [
       "AI Surveillance Systems",
       "Access Control & Intercom",
@@ -244,7 +244,7 @@ export function recommend(
       name: "Rapid-Deploy Site Protection",
       line: `Built for active sites in ${city}`,
       items: [
-        ["Mobile Camera Towers", "Solar-powered coverage the day the site opens — no power, no trenching."],
+        ["Mobile Camera Towers", "Solar-powered coverage the day the site opens, no power, no trenching."],
         ["AI Surveillance Systems", "Motion and event alerts the moment something moves after hours."],
         [
           empty ? "Monitoring, Service & Support" : "Access Control & Intercom",
@@ -331,7 +331,7 @@ export function recommend(
     name: "After-Hours Watch",
     line: `Coverage for the hours nobody is at the ${city} site`,
     items: [
-      ["AI Surveillance Systems", "Detection as it happens — not footage reviewed the next morning."],
+      ["AI Surveillance Systems", "Detection as it happens, not footage reviewed the next morning."],
       ["Alarm & Intrusion Protection", "Verified alerts that reach the right people immediately."],
       ["Monitoring, Service & Support", "24/7 monitoring options and remote diagnostics."],
     ],

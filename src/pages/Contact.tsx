@@ -57,7 +57,7 @@ export default function Contact() {
   return (
     <>
       <Seo
-        title="Contact | Request a Quote — Telegroup Security"
+        title="Contact | Request a Quote, Telegroup Security"
         description="Contact Telegroup Security in Windsor, Ontario. Call 519-258-1888 or request a quote. We walk the site, map the risks, and respond with a clear proposal within one business day."
         path="/contact"
       />
@@ -107,7 +107,7 @@ export default function Contact() {
                 </div>
                 <h3>Request received.</h3>
                 <p>
-                  Thank you — a member of the Telegroup Security team will reach
+                  Thank you, a member of the Telegroup Security team will reach
                   out within one business day.
                 </p>
                 <button className="btn btn--ghost" onClick={() => setStatus("idle")}>

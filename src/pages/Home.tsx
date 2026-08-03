@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="Telegroup Security | The Power To Protect — Windsor & Essex County"
+        title="Telegroup Security | The Power To Protect, Windsor & Essex County"
         description="Telegroup Security designs, installs, and supports AI surveillance, access control, alarms, networking, and low-voltage infrastructure across Windsor–Essex and Southwestern Ontario. One accountable team, built around your property."
         path="/"
       />
@@ -59,7 +59,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Security technology and low-voltage infrastructure — designed,
+              Security technology and low-voltage infrastructure, designed,
               installed, and supported by one accountable team. We build systems
               that detect, deter, and respond, not just record.
             </motion.p>
@@ -122,11 +122,11 @@ export default function Home() {
         <div className="container">
           <Reveal className="sectionhead">
             <span className="eyebrow">What we engineer</span>
-            <h2 className="h2">Eight capabilities. One integrated system.</h2>
+            <h2 className="h2">Engineering the Next Generation of Security.</h2>
             <p className="lead">
-              Each capability can stand alone — together they form a single,
-              coherent security and technology infrastructure, built by one
-              accountable team.
+              Integrated security and technology solutions engineered for every
+              environment: residential, commercial, industrial, institutional,
+              and municipal.
             </p>
           </Reveal>
 
@@ -164,7 +164,7 @@ export default function Home() {
             <h2 className="h2 text-balance">
               Designed to <span className="gold">detect</span>,{" "}
               <span className="gold">deter</span>, and{" "}
-              <span className="gold">respond</span> — not just record.
+              <span className="gold">respond</span>, not just record.
             </h2>
             <blockquote className="ddr__quote">
               "Recorded footage is evidence. Detection as it happens is
@@ -177,7 +177,7 @@ export default function Home() {
               {
                 icon: "eye",
                 title: "Detect",
-                body: "AI analytics, recognition, and sensors identify threats early — the moment they matter, not hours later.",
+                body: "AI analytics, recognition, and sensors identify threats early, the moment they matter, not hours later.",
               },
               {
                 icon: "shield",
@@ -210,7 +210,7 @@ export default function Home() {
             <span className="eyebrow">The Telegroup method</span>
             <h2 className="h2">Engineered in four phases.</h2>
             <p className="lead">
-              A disciplined process from first site walk to long-term support —
+              A disciplined process from first site walk to long-term support,
               so nothing is improvised and everything is documented.
             </p>
           </Reveal>
@@ -235,7 +235,7 @@ export default function Home() {
             <h2 className="h2">Built around how each property works.</h2>
             <p className="lead">
               We don't sell equipment packages. We engineer systems around the
-              site, the operation, and the level of risk — so the solution fits
+              site, the operation, and the level of risk, so the solution fits
               the way the property is actually used.
             </p>
           </Reveal>

@@ -24,8 +24,8 @@ export default function Solutions() {
   return (
     <>
       <Seo
-        title="Solutions | AI Surveillance, Access Control & Low-Voltage — Telegroup Security"
-        description="Eight integrated capabilities: AI surveillance, access control, alarms, network infrastructure, smart automation, low-voltage cabling, mobile camera towers, and 24/7 monitoring — engineered around your property."
+        title="Solutions | AI Surveillance, Access Control & Low-Voltage, Telegroup Security"
+        description="Eight integrated capabilities: AI surveillance, access control, alarms, network infrastructure, smart automation, low-voltage cabling, mobile camera towers, and 24/7 monitoring, engineered around your property."
         path="/solutions"
         jsonLd={jsonLd}
       />
@@ -41,7 +41,7 @@ export default function Solutions() {
             <p className="lead">
               Every property has different risks, access points, network needs,
               and daily operations. We design each system around how your space is
-              actually used — not from one-size-fits-all equipment packages.
+              actually used, not from one-size-fits-all equipment packages.
             </p>
             <div className="pagehero__actions">
               <Button to="/contact#contact-form">Request a Quote</Button>

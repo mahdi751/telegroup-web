@@ -14,7 +14,7 @@ export default function Footer() {
             <Logo variant="on-dark" height={88} />
           </Link>
           <p className="footer__tag">
-            Security technology and low-voltage infrastructure — designed,
+            Security technology and low-voltage infrastructure, designed,
             installed, and supported by one accountable team.
           </p>
           <p className="footer__region">{company.region}</p>
@@ -83,7 +83,7 @@ export default function Footer() {
       <div className="container footer__bottom">
         <p>© {year} Telegroup Security. All rights reserved.</p>
         <p className="footer__power">
-          <span className="gold">The Power to Protect</span>
+          <span className="gold">The Power To Protect</span>
         </p>
       </div>
     </footer>

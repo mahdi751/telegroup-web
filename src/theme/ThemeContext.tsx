@@ -28,11 +28,7 @@ function readStoredTheme(): Theme | null {
 
 function getInitialTheme(): Theme {
   if (typeof window === "undefined") return "dark";
-  const stored = readStoredTheme();
-  if (stored) return stored;
-  return window.matchMedia("(prefers-color-scheme: light)").matches
-    ? "light"
-    : "dark";
+  return readStoredTheme() ?? "dark";
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
@@ -45,15 +41,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     );
     if (meta) meta.content = theme === "dark" ? "#0a0a0b" : "#ffffff";
   }, [theme]);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-color-scheme: light)");
-    const onChange = (e: MediaQueryListEvent) => {
-      if (!readStoredTheme()) setTheme(e.matches ? "light" : "dark");
-    };
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
 
   const toggleTheme = useCallback(() => {
     setTheme((current) => {

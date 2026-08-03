@@ -11,8 +11,6 @@
           var stored = localStorage.getItem("tg-theme");
           if (stored === "light" || stored === "dark") {
             theme = stored;
-          } else if (matchMedia("(prefers-color-scheme: light)").matches) {
-            theme = "light";
           }
         } catch (e) {}
         document.documentElement.dataset.theme = theme;
@@ -64,7 +62,7 @@
         "url": "https://telegroup.ca/",
         "telephone": "+1-519-258-1888",
         "email": "info@telegroup.ca",
-        "slogan": "The Power to Protect",
+        "slogan": "The Power To Protect",
         "foundingDate": "1984",
         "address": {
           "@type": "PostalAddress",
