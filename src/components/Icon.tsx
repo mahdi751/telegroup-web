@@ -225,6 +225,13 @@ const paths: Record<string, JSX.Element> = {
   moon: (
     <path d="M20.6 13.4A8.2 8.2 0 1 1 10.6 3.4a6.6 6.6 0 0 0 10 10z" />
   ),
+  alert: (
+    <>
+      <path d="M12 3 2 20h20z" />
+      <path d="M12 10v4" />
+      <circle cx="12" cy="17" r="0.6" fill="currentColor" />
+    </>
+  ),
   eye: (
     <>
       <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />

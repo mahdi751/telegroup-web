@@ -100,6 +100,35 @@
   color: #b3423c;
 }
 
+.contact-form__honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact-form__error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: rgba(217, 83, 79, 0.1);
+  border: 1px solid rgba(217, 83, 79, 0.35);
+  color: #e88;
+  font-size: 0.88rem;
+}
+.contact-form__error svg {
+  flex-shrink: 0;
+  color: #d9534f;
+}
+
+[data-theme="light"] .contact-form__error {
+  color: #b3423c;
+}
+
 .contact-submit {
   width: 100%;
   justify-content: center;

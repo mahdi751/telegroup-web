@@ -8,11 +8,14 @@ import LiveMonitorVisual from "../components/LiveMonitorVisual";
 import { company, propertyTypes, solutions, serviceAreas } from "../data/site";
 import "./Contact.css";
 
-type Status = "idle" | "submitting" | "success";
+type Status = "idle" | "submitting" | "success" | "error";
+
+const WEB3FORMS_ACCESS_KEY = "2b34141f-971d-4eaa-8a97-4690b9d2b64a";
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitError, setSubmitError] = useState("");
 
   /* The coverage map hands off the checked address and recommended package. */
   const [params] = useSearchParams();
@@ -29,18 +32,46 @@ export default function Contact() {
     return e;
   };
 
-  const onSubmit = (ev: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
     const form = ev.currentTarget;
     const data = new FormData(form);
     const e = validate(data);
     setErrors(e);
     if (Object.keys(e).length > 0) return;
+
     setStatus("submitting");
-    setTimeout(() => {
-      setStatus("success");
-      form.reset();
-    }, 900);
+    setSubmitError("");
+
+    data.append("access_key", WEB3FORMS_ACCESS_KEY);
+    data.append("from_name", "Telegroup Security Website");
+    data.append(
+      "subject",
+      `New Quote Request from ${data.get("name")} - Telegroup Security`
+    );
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data,
+      });
+      const result = await res.json();
+      if (result.success) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+        setSubmitError(
+          result.message || "Something went wrong. Please try again or call us directly."
+        );
+      }
+    } catch {
+      setStatus("error");
+      setSubmitError(
+        "We couldn't send your request. Please check your connection and try again."
+      );
+    }
   };
 
   const contactCards = [
@@ -116,18 +147,26 @@ export default function Contact() {
               </motion.div>
             ) : (
               <form className="contact-form" onSubmit={onSubmit} noValidate>
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  className="contact-form__honeypot"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
                 <Field label="Full name" name="name" error={errors.name} required />
-                <Field label="Company name" name="company" />
+                <Field label="Company name" name="company_name" />
                 <Field label="Phone number" name="phone" type="tel" error={errors.phone} required />
                 <Field label="Email address" name="email" type="email" error={errors.email} required />
                 <Field
                   label="Project location"
-                  name="location"
+                  name="project_location"
                   defaultValue={prefillLocation}
                 />
                 <div className="field">
                   <label htmlFor="property">Property type</label>
-                  <select id="property" name="property" defaultValue="">
+                  <select id="property" name="property_type" defaultValue="">
                     <option value="" disabled>
                       Select property type
                     </option>
@@ -140,7 +179,7 @@ export default function Contact() {
                 </div>
                 <div className="field field--full">
                   <label htmlFor="service">Service needed</label>
-                  <select id="service" name="service" defaultValue="">
+                  <select id="service" name="service_needed" defaultValue="">
                     <option value="" disabled>
                       Select a service
                     </option>
@@ -156,7 +195,7 @@ export default function Contact() {
                   <label htmlFor="details">Project details</label>
                   <textarea
                     id="details"
-                    name="details"
+                    name="project_details"
                     rows={4}
                     defaultValue={
                       prefillPackage
@@ -166,6 +205,13 @@ export default function Contact() {
                     placeholder="Tell us about your property, entrances, current systems, and what you'd like to protect."
                   />
                 </div>
+                {status === "error" && (
+                  <div className="field--full contact-form__error" role="alert">
+                    <Icon name="alert" size={18} />
+                    <span>{submitError}</span>
+                  </div>
+                )}
+
                 <div className="field--full">
                   <button
                     type="submit"
