@@ -73,7 +73,7 @@ export default function Footer() {
               <span>
                 {company.address.street}
                 <br />
-                {company.address.city}, {company.address.region}, {company.address.postal}
+                {company.address.city} {company.address.region} {company.address.postal}
               </span>
             </li>
           </ul>

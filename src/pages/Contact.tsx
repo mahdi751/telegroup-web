@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, type ReactNode } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import Seo from "../components/Seo";
@@ -74,14 +74,25 @@ export default function Contact() {
     }
   };
 
-  const contactCards = [
+  const contactCards: {
+    icon: string;
+    label: string;
+    value: ReactNode;
+    href?: string;
+  }[] = [
     { icon: "phone", label: "Phone", value: company.phone, href: company.phoneHref },
     { icon: "globe", label: "Website", value: company.web, href: "https://telegroup.ca" },
     { icon: "mail", label: "Email", value: company.email, href: `mailto:${company.email}` },
     {
       icon: "pin",
       label: "Address",
-      value: `${company.address.street}, ${company.address.city}, ${company.address.region}, ${company.address.postal}`,
+      value: (
+        <>
+          {company.address.street}
+          <br />
+          {company.address.city} {company.address.region} {company.address.postal}
+        </>
+      ),
     },
   ];
 

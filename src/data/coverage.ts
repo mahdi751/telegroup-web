@@ -8,7 +8,7 @@ export const HQ = {
   lng: -83.0275,
   lat: 42.2793,
   label: "Telegroup Security",
-  sub: "2473 Ouellette Ave, Windsor",
+  sub: "2473 Ouellette Ave Unit-4, Windsor",
 };
 
 /** The reveal starts tight on the office… */

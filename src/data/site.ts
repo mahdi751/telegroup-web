@@ -7,9 +7,9 @@ export const company = {
   email: "info@telegroup.ca",
   web: "www.telegroup.ca",
   address: {
-    street: "2473 Ouellette Ave",
+    street: "2473 Ouellette Ave Unit-4",
     city: "Windsor",
-    region: "Ontario",
+    region: "ON",
     postal: "N8X 1L5",
     country: "Canada",
   },
