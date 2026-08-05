@@ -21,7 +21,7 @@ export const company = {
 };
 
 export const stats = [
-  { value: "15+", label: "Years of heritage", sub: "Delivering professional security & low-voltage solutions", icon: "growth" },
+  { value: "15+", label: "Years of Experience", sub: "Delivering professional security & low-voltage solutions.", icon: "growth" },
   { value: "1,000+", label: "Projects completed", sub: "residential to industrial", icon: "check" },
   { value: "24/7", label: "Support & monitoring", sub: "options on every system", icon: "headset" },
   { value: "1", label: "Accountable team", sub: "design through support", icon: "people" },

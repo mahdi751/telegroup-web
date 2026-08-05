@@ -124,6 +124,16 @@ body {
   text-transform: capitalize;
 }
 
+/* Keep emails & URLs literal — do not title-case them */
+a[href^="mailto:"],
+a[href^="http://"],
+a[href^="https://"],
+a[href^="//"],
+input[type="email"],
+input[type="url"] {
+  text-transform: none;
+}
+
 img,
 svg {
   display: block;
